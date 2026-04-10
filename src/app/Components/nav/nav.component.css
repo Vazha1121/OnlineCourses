@@ -1,0 +1,78 @@
+nav {
+  max-width: 1440px;
+  width: 100%;
+  height: 108px;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #d1d1d1;
+  padding-right: 24px;
+  padding-left: 24px;
+  margin: auto;
+  position: relative;
+}
+nav .navInsideDiv {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav .navInsideDiv .imgDiv {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  background-color: #4f46e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav .navInsideDiv .LoginDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+nav .navInsideDiv .LoginDiv .btn1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #525252;
+  border: none;
+  background-color: #f5f5f5;
+}
+nav .navInsideDiv .LoginDiv .login {
+  width: 114px;
+  height: 60px;
+  border-radius: 8px;
+  border: 2px solid #958fef;
+  color: #4f46e5;
+  font-size: 20px;
+}
+nav .navInsideDiv .LoginDiv .register {
+  width: 125px;
+  height: 60px;
+  border-radius: 8px;
+  border: none;
+  background-color: #4f46e5;
+  color: #ffffff;
+  font-size: 20px;
+}
+nav {
+  /*   .loginIn {
+      max-width: 1440px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      position: fixed;
+      background-color: rgba(1, 0, 0, 0.5);
+      margin: auto;
+      top: -0;
+    } */
+}/*# sourceMappingURL=nav.component.css.map */

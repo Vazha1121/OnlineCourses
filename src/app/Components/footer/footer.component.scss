@@ -1,0 +1,109 @@
+footer {
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .firstDiv {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    .aboutDiv {
+      display: flex;
+      flex-direction: column;
+      .iconDiv {
+        display: flex;
+        align-items: center;
+        color: #130e67;
+        font-size: 24px;
+        gap: 12px;
+        .imgDiv {
+          width: 45px;
+          height: 45px;
+          border-radius: 10px;
+          background-color: #4f46e5;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          img {
+            width: 18px;
+          }
+        }
+      }
+      .pDiv {
+        width: 200px;
+        font-size: 14px;
+        color: #130e67;
+      }
+      .socMedia {
+        width: 177px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+    .features {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      div {
+        width: 255px;
+        height: 155px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        h1 {
+          font-size: 20px;
+          font-weight: 600;
+          color: #130e67;
+          margin-left: 40px;
+        }
+        ul {
+          list-style-type: none;
+          color: #666666;
+          font-size: 18px;
+          font-weight: 400;
+          align-items: start;
+          justify-content: start;
+        }
+      }
+    }
+  }
+  .copyRightDiv {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    .rightDiv1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .rightDiv2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      ul {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+        li:nth-child(1) {
+          width: 150px;
+          border-right: 1px solid black;
+        }
+        li:nth-child(2) {
+          width: 150px;
+          border-right: 1px solid black;
+          color: #4f46e5;
+        }
+        li:nth-child(3) {
+          color: #4f46e5;
+        }
+      }
+    }
+  }
+}
