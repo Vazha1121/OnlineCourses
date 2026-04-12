@@ -1,1 +1,143 @@
-<p>home works!</p>
+<section class="mainSect">
+  <section class="carouselSect">
+    <div
+      class="carouselWrapper"
+      [style.transform]="'translateX(-' + (carouselCount - 1) * 100 + '%)'"
+    >
+      <!-- carousel1 -->
+      <div class="carouselDiv">
+        <div class="contentDiv carousel1">
+          <div class="titleDiv">
+            <h1>Start learning something new today</h1>
+            <p>
+              Explore a wide range of expert-led courses in design, development,
+              business, and more. Find the skills you need to grow your career
+              and learn at your own pace.
+            </p>
+          </div>
+          <div class="btnDiv">
+            <button>Browse Courses</button>
+          </div>
+        </div>
+      </div>
+      <!-- carousel2 -->
+      <div class="carouselDiv">
+        <div class="contentDiv carousel2">
+          <div class="titleDiv">
+            <h1>Pick up where you left off</h1>
+            <p>
+              Your learning journey is already in progress. Continue your
+              enrolled courses, track your progress, and stay on track toward
+              completing your goals.
+            </p>
+          </div>
+          <div class="btnDiv">
+            <button>Start Learning</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- carousel3 -->
+      <div class="carouselDiv">
+        <div class="contentDiv carousel3">
+          <div class="titleDiv">
+            <h1>Learn together, grow faster</h1>
+          </div>
+          <div class="btnDiv">
+            <button>Learn More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="imgCountDiv">
+      <div class="c1"></div>
+      <div class="count">
+        @if (carouselCount == 1) {
+          <div [style.background-color]="'#FFFFFF'"></div>
+          <div [style.background-color]="'#C1BCBC80'"></div>
+          <div [style.background-color]="'#C1BCBC80'"></div>
+        } @else if (carouselCount == 2) {
+          <div [style.background-color]="'#C1BCBC80'"></div>
+          <div [style.background-color]="'#FFFFFF'"></div>
+          <div [style.background-color]="'#C1BCBC80'"></div>
+        } @else if (carouselCount == 3) {
+          <div [style.background-color]="'#C1BCBC80'"></div>
+          <div [style.background-color]="'#C1BCBC80'"></div>
+          <div [style.background-color]="'#FFFFFF'"></div>
+        }
+      </div>
+      <div class="nextPrevBtn">
+        @if (carouselCount == 1) {
+          <button (click)="prevCarousel()" disabled>
+            <img src="disabledPrevBtn.png" alt="" />
+          </button>
+        } @else {
+          <button (click)="prevCarousel()">
+            <img src="arrowPrev.png" alt="" />
+          </button>
+        }
+
+        @if (carouselCount == 3) {
+          <button (click)="nextCarousel()" disabled>
+            <img src="disabledNextBtn.png" alt="" />
+          </button>
+        } @else {
+          <button (click)="nextCarousel()">
+            <img src="arrowNext.png" alt="" />
+          </button>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Start Learning Today -->
+
+  <section class="startLearning">
+    <!-- Title -->
+    <div class="titleDiv">
+      <h1>Start Learning Today</h1>
+      <p>Choose from our most popular courses and begin your journey</p>
+    </div>
+
+    <!-- Card -->
+    <div class="carDiv">
+      <!-- img -->
+      @for (item of featuredData; track $index) {
+        <div class="card">
+          <div class="cardImg">
+            <img [src]="item.image" alt="" />
+          </div>
+          <!-- rating -->
+          <div class="lectorAndRating">
+            <div class="lector">
+              <p>Lecturer Marilyn Mango</p>
+            </div>
+            <div class="rating">STAR 4.9</div>
+          </div>
+          <!-- Course Title -->
+          <div class="courseTitle">
+            <h4>Advanced React & TypeScript Development</h4>
+          </div>
+          <!-- Course Desc -->
+          <div class="courseDesc">
+            <p>
+              Master modern React patterns, hooks, and TypeScript integration
+              for building scalable web applications.
+            </p>
+          </div>
+
+          <!-- Price and Details BTN -->
+          <div class="priceAndDtl">
+            <div class="price">
+              <p>Starting from</p>
+              <h3>$233</h3>
+            </div>
+            <div class="detailBtn">
+              <button>Details</button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+</section>

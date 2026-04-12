@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { LoginComponent } from '../login/login.component';
 import { BehaviorSubject } from 'rxjs';
-import { PopUpServiceService } from '../../pop-up-service.service';
+import { PopUpServiceService } from '../../Services/pop-up-service.service';
+import { RegisterComponent } from '../register/register.component';
 @Component({
   selector: 'app-nav',
-  imports: [LoginComponent],
+  imports: [LoginComponent, RegisterComponent],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss',
 })
@@ -18,5 +19,9 @@ export class NavComponent {
   private showLoginPopUp = new BehaviorSubject<boolean>(true);
   public openLogin() {
     this.popService.openLogin();
+  }
+
+  public openRegister() {
+    this.popService.openRegister();
   }
 }

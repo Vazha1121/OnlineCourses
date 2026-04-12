@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PopUpServiceService } from '../../pop-up-service.service';
+import { PopUpServiceService } from '../../Services/pop-up-service.service';
 
 @Component({
   selector: 'app-login',

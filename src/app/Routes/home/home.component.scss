@@ -1,0 +1,159 @@
+.mainSect {
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+
+  .carouselSect {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    .carouselWrapper {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: transform 0.5s ease;
+
+      .carouselDiv {
+        min-width: 100%;
+        flex-shrink: 0;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        height: 420px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 30px;
+        overflow: hidden;
+        .contentDiv {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          margin: auto;
+          padding: 48px;
+          padding-bottom: 120px;
+          border-radius: 30px;
+          .titleDiv {
+            width: 100%;
+            color: white;
+            h1 {
+              font-size: 48px;
+            }
+            p {
+              width: 700px;
+            }
+          }
+          .btnDiv {
+            width: 100%;
+            button {
+              width: 206px;
+              height: 64px;
+              border-radius: 8px;
+              border: none;
+              background-color: #4f46e5;
+              font-weight: 500;
+              color: white;
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+    .imgCountDiv {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      position: absolute;
+      bottom: 40px;
+      gap: 200px;
+      .c1 {
+        width: 100px;
+      }
+      .count {
+        width: 200px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        div {
+          width: 57px;
+          height: 8px;
+          border-radius: 999px;
+          background-color: #f5f5f5;
+        }
+      }
+      .nextPrevBtn {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        button {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .carouselSect {
+    .carousel1 {
+      background-image: url("/carousel1.png");
+      background-size: 100% 100%;
+    }
+    .carousel2 {
+      background-image: url("/carousel2.png");
+      background-size: 100% 100%;
+    }
+    .carousel3 {
+      background-image: url("/carousel3.png");
+      background-size: 100% 100%;
+    }
+  }
+
+  /* Start Learning Today */
+
+  .startLearning {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .carDiv {
+      width: 100%;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .card {
+        width: 506px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 10px;
+        .cardImg {
+          width: 100%;
+          img {
+            width: 466px;
+            height: 262px;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+  }
+}
