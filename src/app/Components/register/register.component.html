@@ -1,25 +1,87 @@
 <section class="loginSect" [class.closeLogin]="OpencloseRegisterPop">
   <div class="loginDiv">
     <div class="closeDiv">
-      <img src="close.png" alt="" (click)="closeLogin()">
+      <img src="close.png" alt="" (click)="closeLogin()" />
     </div>
     <div class="titleDiv">
       <h1>Create Account</h1>
       <p>Join and start learning today</p>
     </div>
     <div class="inputDiv">
-        <div class="threeDiv">
-            <div></div>
-            <div></div>
-            <div></div>
+      <div class="threeDiv">
+        @if (carouselCount == 1 || carouselCount == 3) {
+          <div [style.background-color]="'#B7B3F4'"></div>
+        } @else {
+          <div [style.background-color]="'#EEEDFC'"></div>
+        }
+        @if (carouselCount == 1 || carouselCount == 2 || carouselCount == 3 ) {
+          <div [style.background-color]="'#B7B3F4'"></div>
+        } @else {
+          <div [style.background-color]="'#EEEDFC'"></div>
+        }
+        <div></div>
+      </div>
+
+      <!-- carousel -->
+      <section class="carouselSect">
+        <div
+          class="carouselWrapper"
+          [style.transform]="'translateX(-' + (carouselCount - 1) * 100 + '%)'"
+        >
+          <form action="" [formGroup]="registerForm">
+            <!-- email -->
+            <div class="emailDiv">
+              <label for="">Email</label>
+              <input
+                type="email"
+                placeholder="you@example.com"
+                formControlName="email"
+              />
+            </div>
+            <button (click)="nextCarousel()">Next</button>
+          </form>
+          <!-- password -->
+          <form action="" [formGroup]="registerForm">
+            <div class="passwordDiv">
+              <label for="">Password*</label>
+              <input
+                type="password"
+                placeholder="Password"
+                formControlName="password"
+              />
+            </div>
+
+            <div class="passwordDiv">
+              <label for="">Confirm Password*</label>
+              <input type="password" formControlName="password_confirmation" />
+            </div>
+            <button (click)="nextCarousel()">Next</button>
+          </form>
+
+          <!-- username and avatar -->
+          <form action="" [formGroup]="registerForm">
+            <div class="usernameAvatar">
+              <label for="">Username*</label>
+              <input
+                type="text"
+                placeholder="Username"
+                formControlName="username"
+              />
+            </div>
+
+            <div class="usernameAvatar">
+              <label for="">Upload Avatar*</label>
+              <input
+                type="file"
+                placeholder="Avatar"
+                (change)="imageSelected($event)"
+              />
+            </div>
+
+            <button type="submit" (click)="submit()">Sign Up</button>
+          </form>
         </div>
-      <form action="">
-        <div>
-          <label for="">Email</label>
-          <input type="email" />
-        </div>
-        <button type="submit">Next</button>
-      </form>
+      </section>
     </div>
     <div class="signUpDiv">
       <div></div>

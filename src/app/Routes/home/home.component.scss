@@ -271,18 +271,35 @@
     flex-direction: column;
     align-items: start;
     justify-content: center;
+    position: relative;
     .titleDiv {
       width: 100%;
+      div {
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        p:nth-child(1) {
+          font-size: 18px;
+          font-weight: 500;
+          color: #4a5565;
+          letter-spacing: 0%;
+          line-height: 100%;
+        }
+        p:nth-child(2) {
+          font-size: 20px;
+          font-weight: 500;
+          color: #4f46e5;
+          letter-spacing: 0%;
+          line-height: 100%;
+          text-decoration: underline;
+        }
+      }
       h1 {
         margin: 0;
         font-size: 40px;
         font-weight: 600;
         color: black;
-      }
-      p {
-        font-size: 18px;
-        font-weight: 500;
-        color: #3d3d3d;
       }
     }
     .carDiv {
@@ -401,20 +418,59 @@
     /* login in popup */
     .signInPop {
       width: 100%;
+      height: 270px;
       margin: auto;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 8px;
+      position: absolute;
+      z-index: 1;
+      backdrop-filter: blur(10px);
+      bottom: 0;
       .loginIn {
         width: 418px;
         height: 233px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
+        background-color: #ffff;
+        gap: 5px;
         border-radius: 12px;
-        background-color: red;
+        border: 1px solid #d1d1d1;
+        .imgDiv {
+          width: 74px;
+          height: 76px;
+          border-radius: 50px;
+          background-color: #dddbfa;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .titleDiv {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .btnDiv {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          button {
+            width: 83px;
+            height: 42px;
+            border: none;
+            border-radius: 8px;
+            background-color: #4f46e5;
+            color: #f5f5f5;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+          }
+        }
       }
     }
   }

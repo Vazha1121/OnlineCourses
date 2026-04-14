@@ -4,9 +4,10 @@ import { LoginComponent } from '../login/login.component';
 import { BehaviorSubject } from 'rxjs';
 import { PopUpServiceService } from '../../Services/pop-up-service.service';
 import { RegisterComponent } from '../register/register.component';
+import { RouterLink } from "@angular/router";
 @Component({
   selector: 'app-nav',
-  imports: [LoginComponent, RegisterComponent],
+  imports: [LoginComponent, RegisterComponent, RouterLink],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss',
 })

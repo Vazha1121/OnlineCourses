@@ -14,4 +14,14 @@ export class ApiService {
       `https://api.redclass.redberryinternship.ge/api/courses/featured`,
     );
   }
+
+  /* User */
+
+  register(body: any, header: any) {
+    return this.http.post(
+      `https://api.redclass.redberryinternship.ge/api/register`,
+      body,
+      { headers: header },
+    );
+  }
 }
