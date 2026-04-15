@@ -24,4 +24,12 @@ export class ApiService {
       { headers: header },
     );
   }
+
+  loginIn(body: any, header: any) {
+    return this.http.post(
+      `https://api.redclass.redberryinternship.ge/api/login`,
+      body,
+      { headers: header },
+    );
+  }
 }

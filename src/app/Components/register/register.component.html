@@ -1,6 +1,7 @@
 <section class="loginSect" [class.closeLogin]="OpencloseRegisterPop">
   <div class="loginDiv">
     <div class="closeDiv">
+      <img src="arrowBack.png" alt="">
       <img src="close.png" alt="" (click)="closeLogin()" />
     </div>
     <div class="titleDiv">
@@ -14,7 +15,7 @@
         } @else {
           <div [style.background-color]="'#EEEDFC'"></div>
         }
-        @if (carouselCount == 1 || carouselCount == 2 || carouselCount == 3 ) {
+        @if (carouselCount == 1 || carouselCount == 2 || carouselCount == 3) {
           <div [style.background-color]="'#B7B3F4'"></div>
         } @else {
           <div [style.background-color]="'#EEEDFC'"></div>
@@ -24,12 +25,15 @@
 
       <!-- carousel -->
       <section class="carouselSect">
-        <div
+        <form
+          action=""
+          
+          [formGroup]="registerForm"
           class="carouselWrapper"
           [style.transform]="'translateX(-' + (carouselCount - 1) * 100 + '%)'"
         >
-          <form action="" [formGroup]="registerForm">
-            <!-- email -->
+          <!-- email -->
+          <div class="carouselDiv">
             <div class="emailDiv">
               <label for="">Email</label>
               <input
@@ -39,9 +43,11 @@
               />
             </div>
             <button (click)="nextCarousel()">Next</button>
-          </form>
+          </div>
+
           <!-- password -->
-          <form action="" [formGroup]="registerForm">
+
+          <div class="carouselDiv">
             <div class="passwordDiv">
               <label for="">Password*</label>
               <input
@@ -56,10 +62,11 @@
               <input type="password" formControlName="password_confirmation" />
             </div>
             <button (click)="nextCarousel()">Next</button>
-          </form>
+          </div>
 
           <!-- username and avatar -->
-          <form action="" [formGroup]="registerForm">
+
+          <div class="carouselDiv">
             <div class="usernameAvatar">
               <label for="">Username*</label>
               <input
@@ -72,15 +79,15 @@
             <div class="usernameAvatar">
               <label for="">Upload Avatar*</label>
               <input
-                type="file"
+                type="image"
                 placeholder="Avatar"
                 (change)="imageSelected($event)"
               />
             </div>
 
             <button type="submit" (click)="submit()">Sign Up</button>
-          </form>
-        </div>
+          </div>
+        </form>
       </section>
     </div>
     <div class="signUpDiv">

@@ -1,23 +1,23 @@
 <section class="loginSect" [class.closeLogin]="OpencloseLoginPop">
   <div class="loginDiv">
     <div class="closeDiv">
-      <img src="close.png" alt="" (click)="closeLogin()">
+      <img src="close.png" alt="" (click)="closeLogin()" />
     </div>
     <div class="titleDiv">
       <h1>Welcome Back</h1>
       <p>Log in to continue your learning</p>
     </div>
     <div class="inputDiv">
-      <form action="">
+      <form action="" [formGroup]="loginForm">
         <div>
           <label for="">Email</label>
-          <input type="email" />
+          <input type="email" formControlName="email" />
         </div>
         <div>
           <label for="">Password</label>
-          <input type="password" />
+          <input type="password" formControlName="password" />
         </div>
-        <button type="submit">Log In</button>
+        <button type="submit" (click)="login()">Log In</button>
       </form>
     </div>
     <div class="signUpDiv">

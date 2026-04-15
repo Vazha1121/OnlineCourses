@@ -32,23 +32,22 @@ export class RegisterComponent implements OnInit {
 
   /* Register */
 
-  public header: any = {
-    header: 'application/json',
-  };
-
-  public registerForm: FormGroup = new FormGroup({
-    username: new FormControl(``, [
-      Validators.required,
-      Validators.minLength(3),
-    ]),
-    email: new FormControl(``, [Validators.required, Validators.email]),
-    password: new FormControl(``, [
-      Validators.required,
-      Validators.minLength(3),
-    ]),
-    password_confirmation: new FormControl(``, [Validators.required]),
-    avatar: new FormControl([null]),
-  });
+  public registerForm: FormGroup = new FormGroup(
+    {
+      username: new FormControl(``, [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      email: new FormControl(``, [Validators.required, Validators.email]),
+      password: new FormControl(``, [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      password_confirmation: new FormControl(``, [Validators.required]),
+      avatar: new FormControl(null),
+    },
+    this.passwordMatch,
+  );
 
   //passwordConfirmation
 
@@ -56,7 +55,7 @@ export class RegisterComponent implements OnInit {
     const password = form.get(`password`)?.value;
     const confirm_password = form.get(`password_confirmation`)?.value;
 
-    return password === confirm ? null : { mismatch: true };
+    return password === confirm_password ? null : { mismatch: true };
   }
 
   //avatar
@@ -78,13 +77,21 @@ export class RegisterComponent implements OnInit {
 
   /* submit Register */
 
-  submit() {
-    if (this.registerForm.invalid) {
-      this.registerForm.markAllAsTouched();
+  public header: any = {
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+  };
 
-      return;
-    }
+  submit() {
     console.log(this.registerForm.value);
+
+    this.apiservice.register(this.registerForm.value, this.header).subscribe({
+      next: (data: any) => {
+        console.log(data);
+        console.log(data.data.token);
+        this.cookie.set("userToken", data.data.token)
+      },
+    });
   }
   /* Pop Up Close */
 
@@ -96,7 +103,7 @@ export class RegisterComponent implements OnInit {
   }
 
   /* Carousel BTNS */
-  public carouselCount: any = 0;
+  public carouselCount: any = 1;
 
   nextCarousel() {
     this.carouselCount++;

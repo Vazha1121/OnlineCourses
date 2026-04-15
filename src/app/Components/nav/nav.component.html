@@ -1,4 +1,27 @@
 @if (cookie.get("userToken")) {
+  <nav>
+    <div class="navInsideDiv">
+      <div class="imgDiv">
+        <img src="Vector.png" alt="" routerLink="/" />
+      </div>
+      <div class="LoginDiv">
+        <button class="btn1">
+          <span><img src="Nav icon.png" alt="" /></span>Browse Courses
+        </button>
+        <button class="enrolled">
+          <img src="enrolled.png" alt="" />Enrolled Courses
+        </button>
+        <button class="userProfile">
+          <img src="User.png" alt="" />
+          <div class="status"></div>
+        </button>
+      </div>
+    </div>
+    <div class="loginIn">
+      <app-login></app-login>
+      <app-register></app-register>
+    </div>
+  </nav>
 } @else {
   <nav>
     <div class="navInsideDiv">
