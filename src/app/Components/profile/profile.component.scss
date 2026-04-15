@@ -1,0 +1,146 @@
+.profilePopUp {
+  max-width: 1440px;
+  width: 100%;
+  background-color: rgba(1, 0, 0, 0.5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  z-index: 1;
+  .profileDiv {
+    width: 460px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    .closeDiv {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+    }
+    .prof {
+      width: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+        h1 {
+          font-size: 32px;
+          font-weight: 600;
+          color: #141414;
+        }
+        .avatarStatus {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: start;
+          gap: 20px;
+          .imgDiv {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background-color: #eeedfc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            .statusDiv {
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              background-color: #f4a316;
+              position: absolute;
+              right: 2px;
+              bottom: 3px;
+            }
+          }
+          .userNameStatus {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 5px;
+            h4 {
+              font-size: 20px;
+              font-weight: 600;
+              margin: 0;
+            }
+            p {
+              font-size: 10px;
+              font-weight: 400;
+              color: #f4a316;
+              margin: 0;
+            }
+          }
+        }
+        .inputDiv {
+          width: 100%;
+          height: 73px;
+          display: flex;
+          align-items: start;
+          flex-direction: column;
+          justify-content: space-between;
+          label {
+            font-size: 14px;
+            font-weight: 500;
+          }
+          input {
+            width: 360px;
+            height: 48px;
+            padding-left: 10px;
+            border-radius: 8px;
+            border: 1.5px solid #d1d1d1;
+            outline: none;
+            font-size: 14px;
+          }
+        }
+        .phoneAge {
+          width: 100%;
+          height: 73px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          .phoneDiv {
+            width: 267px;
+            height: 73px;
+            .phoneInp {
+              width: 100%;
+              height: 48px;
+              outline: none;
+              border: 1.5px solid #d1d1d1;
+              border-radius: 8px;
+            }
+          }
+          .ageDiv {
+            width: 85px;
+            height: 73px;
+            display: flex;
+            flex-direction: column;
+            select {
+              width: 85px;
+              height: 53px;
+              outline: none;
+              border: 1.5px solid #d1d1d1;
+              border-radius: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
