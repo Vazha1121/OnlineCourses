@@ -1,1 +1,170 @@
-<p>course-detail works!</p>
+<section class="courseDetail">
+  <div class="routeDiv">
+    <p>Home > Browse > <span>Development</span></p>
+  </div>
+  <div class="infoDiv">
+    <div class="firstDiv">
+      <div class="titleDiv">
+        <h1>Advanced React & TypeScript</h1>
+      </div>
+      <div class="imgDiv">
+        <img src="" alt="" />
+      </div>
+      <div class="hourRatingDiv">
+        <div class="hours">
+          <p>
+            <span><img src="calendar.png" alt="" /></span>12 weeks
+          </p>
+          <p>
+            <span><img src="clock.png" alt="" /></span>128 Hours
+          </p>
+        </div>
+        <div class="rating">
+          <p>
+            <span><img src="Star.png" alt="" /></span>4.9
+          </p>
+          <p>
+            <span><img src="development.png" alt="" /></span>Development
+          </p>
+        </div>
+      </div>
+      <div class="mentorDiv">
+        <img src="" alt="" />
+        <p>Mentor Name</p>
+      </div>
+      <div class="description">
+        <h3>Course Description</h3>
+        <p>dawgKLGakgnw</p>
+      </div>
+    </div>
+    <div class="secondDiv">
+      <div class="accordionDiv">
+        <div class="accordion one">
+          <div class="item">
+            <div class="header" (click)="toggle(1)">
+              <div class="number">
+                <span class="spanOne">1</span>
+                <h1>Weekly Schedule</h1>
+              </div>
+              <span><img src="arrowDown.png" alt="" /></span>
+            </div>
+
+            @if (this.open) {
+              <div class="content">
+                <div class="">
+                  <p>Mon-Wed</p>
+                </div>
+                <div class="">
+                  <p>Tue-Thu</p>
+                </div>
+                <div class="">
+                  <p>Wed-Fri</p>
+                </div>
+                <div class="">
+                  <p>Weekend</p>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="accordion two">
+          <div class="item">
+            <div class="header" (click)="toggle(1)">
+              <div class="number">
+                <span class="spanOne">1</span>
+                <h1>Season Type</h1>
+              </div>
+              <span><img src="arrowDown.png" alt="" /></span>
+            </div>
+
+            @if (this.open) {
+              <div class="content">
+                <div class="contentDiv">
+                  <img src="goodWeather.png" alt="" />
+                  <div>
+                    <p>Morning</p>
+                    <p>9:00 AM - 12:00 PM</p>
+                  </div>
+                </div>
+                <div class="contentDiv">
+                  <img src="sun.png" alt="" />
+                  <div>
+                    <p>Afternoon</p>
+                    <p>12:00 AM - 6:00 PM</p>
+                  </div>
+                </div>
+                <div class="contentDiv">
+                  <img src="moon.png" alt="" />
+                  <div>
+                    <p>Evening</p>
+                    <p>6:00 AM - 9:00 PM</p>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="accordion three">
+          <div class="item">
+            <div class="header" (click)="toggle(1)">
+              <div class="number">
+                <span class="spanOne">1</span>
+                <h1>Session Type</h1>
+              </div>
+              <span><img src="arrowDown.png" alt="" /></span>
+            </div>
+
+            @if (this.open) {
+              <div class="content">
+                <div class="contentDiv">
+                  <img src="computer.png" alt="" />
+
+                  <p>Online</p>
+                  <p>Google Meet</p>
+                  <p>Included</p>
+                </div>
+                <div class="contentDiv">
+                  <img src="person.png" alt="" />
+
+                  <p>In-Person</p>
+                  <p>
+                    <span><img src="pin.png" alt="" /></span>Chavchavadze st.34
+                  </p>
+                  <p>+ $30</p>
+                </div>
+                <div class="contentDiv">
+                  <img src="hybrid.png" alt="" />
+
+                  <p>Hybrid</p>
+                  <p>
+                    <span><img src="pin.png" alt="" /></span>Chavchavadze st.34
+                  </p>
+                  <p>+ $50</p>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="priceDiv">
+        <div class="totalPrice">
+          <p>Total Price</p>
+          <p>$349</p>
+        </div>
+        
+        <div class="basePrice">
+          <p>Base Price</p>
+          <p>+ $0</p>
+        </div>
+        <div class="sessionType">
+          <p>Session Type</p>
+          <p>+ $0</p>
+        </div>
+        <button>Enroll Now</button>
+      </div>
+    </div>
+  </div>
+</section>

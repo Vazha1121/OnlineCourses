@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -25,9 +25,23 @@ export class ApiService {
     );
   }
 
-  loginIn(body: any, header: any) {
+  loginIn(body: any, header: HttpHeaders) {
     return this.http.post(
       `https://api.redclass.redberryinternship.ge/api/login`,
+      body,
+      { headers: header },
+    );
+  }
+
+  profile(header: HttpHeaders) {
+    return this.http.get(`https://api.redclass.redberryinternship.ge/api/me`, {
+      headers: header,
+    });
+  }
+
+  updateProf(body: any, header: HttpHeaders) {
+    return this.http.put(
+      `https://api.redclass.redberryinternship.ge/api/profile`,
       body,
       { headers: header },
     );

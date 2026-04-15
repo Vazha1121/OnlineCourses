@@ -1,58 +1,113 @@
-<section class="profilePopUp">
+<section class="profilePopUp" [class.closeProf]="openCloseBtn">
   <div class="profileDiv">
-    <div class="closeDiv"><img src="close.png" alt="" /></div>
+    <div class="closeDiv" (click)="closeProfile()">
+      <img src="close.png" alt="" />
+    </div>
     <div class="prof">
-      <form action="">
-        <h1>Profile</h1>
-        <div class="avatarStatus">
-          <div class="imgDiv">
-            <img src="User.png" alt="" />
-            <div class="statusDiv"></div>
-          </div>
-          <div class="userNameStatus">
-            <h4>Username</h4>
-            <p>Incomplete Profile</p>
-          </div>
-        </div>
-        <div class="inputDiv">
-          <label for="">Full Name</label>
-          <input type="text" placeholder="Username" />
-        </div>
-        <div class="inputDiv">
-          <label for="">Email</label>
-          <input type="text" placeholder="Email@gmail.com" />
-        </div>
-        <div class="phoneAge">
-          <div class="phoneDiv">
-            <label for="">Mobile Number</label>
-            <input type="text" placeholder="+995" class="phoneInp"/>
-          </div>
-          <div class="ageDiv">
-            <label for="">Age</label>
-            <select name="" id="">
-              <option value="">29</option>
-              <option value="">29</option>
-              <option value="">29</option>
-              <option value="">29</option>
-            </select>
-          </div>
-        </div>
-        <div class="avatar">
-          <label for="">Upload Avatar</label>
-          <div>
-            <div class="icon">
-              <img src="upload.png" alt="" />
+      @for (item of profileArray; track $index) {
+        <form action="" [formGroup]="updateProfileForm">
+          <h1>Profile</h1>
+          <div class="avatarStatus">
+            <div class="imgDiv">
+              <img [src]="item.avatar" alt="" />
+              @if (item.profileComplete == false) {
+                <div
+                  class="statusDiv"
+                  [style.background-color]="'#f4a316'"
+                ></div>
+              } @else if (item.profileComplete == true) {
+                <div
+                  class="statusDiv"
+                  [style.background-color]="'#1DC31D'"
+                ></div>
+              } @else {
+                <div
+                  class="statusDiv"
+                  [style.background-color]="'#F4161A'"
+                ></div>
+              }
             </div>
-            <div class="inputDiv">
-              <input type="file" />
-            </div>
-            <div class="labelDiv">
-              <label for="">JPG, PNG or WebP</label>
+            <div class="userNameStatus">
+              <h4>{{ item.username }}</h4>
+              @if (item.profileComplete == false) {
+                <p [style.color]="'#f4a316'">Incomplete Profile</p>
+              } @else if (item.profileComplete == true) {
+                <p [style.color]="'#1DC31D'">Completed Profile</p>
+              } @else {
+                <p [style.color]="'#F4161A'">Completed Profile</p>
+              }
             </div>
           </div>
-        </div>
-        <button type="submit">Update Profile</button>
-      </form>
+          <div class="inputDiv">
+            <label for="">Full Name</label>
+            <input
+              type="text"
+              placeholder="{{ item.fullName }}"
+              formControlName="fullName"
+            />
+          </div>
+          <div class="inputDiv">
+            <label for="">Email</label>
+            <input type="email" placeholder="{{ item.email }}" disabled />
+          </div>
+          <div class="phoneAge">
+            <div class="phoneDiv">
+              <label for="">Mobile Number</label>
+              <input
+                type="text"
+                placeholder="+995 {{ item.mobileNumber }}"
+                class="phoneInp"
+                formControlName="mobileNumber"
+              />
+            </div>
+            <div class="ageDiv">
+              <label for="">Age</label>
+              <select name="" id="" formControlName="age">
+                <option value="">29</option>
+                <option value="">29</option>
+                <option value="">29</option>
+                <option value="">29</option>
+              </select>
+            </div>
+          </div>
+          <div class="avatar">
+            <label for="">Upload Avatar</label>
+            <div
+              class="upload-box"
+              (dragover)="onDragOver($event)"
+              (dragleave)="onDragLeave($event)"
+              (drop)="onDrop($event)"
+              [class.dragging]="isDragging"
+            >
+              <input
+                type="file"
+                #fileInput
+                (change)="onFileSelected($event)"
+                hidden
+                accept="image/png, image/jpeg, image/webp"
+              />
+              <div class="content">
+                <div class="icon">
+                  <img src="upload.png" alt="" />
+                </div>
+                <p>
+                  Drag and drop or
+                  <span class="link" (click)="fileInput.click()"
+                    >Upload file</span
+                  >
+                </p>
+              </div>
+
+              <div class="labelDiv">
+                <small>JPG, PNG or WebP</small>
+              </div>
+            </div>
+          </div>
+          <button type="submit" (click)="updateProfile()">
+            Update Profile
+          </button>
+        </form>
+      }
     </div>
   </div>
 </section>

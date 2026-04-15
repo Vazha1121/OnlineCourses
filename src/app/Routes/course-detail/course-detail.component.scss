@@ -1,0 +1,308 @@
+.courseDetail {
+  max-width: 1920px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  background-color: #f5f5f5;
+  .routeDiv {
+    p {
+      width: 100%;
+      font-size: 18px;
+      font-weight: 500;
+      span {
+        color: #4f46e5;
+      }
+    }
+  }
+
+  .infoDiv {
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 50px;
+    flex-wrap: wrap;
+    .firstDiv {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      .titleDiv {
+        width: 100%;
+        h1 {
+          font-size: 40px;
+          font-weight: 600;
+          color: #141414;
+        }
+      }
+      .imgDiv {
+        width: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+        img {
+          width: 100%;
+        }
+      }
+      .hourRatingDiv {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .hours {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 20px;
+          p {
+            font-size: 14px;
+            font-weight: 500;
+            color: #525252;
+          }
+        }
+        .rating {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 20px;
+          p {
+            font-size: 14px;
+            font-weight: 500;
+            color: #525252;
+          }
+        }
+      }
+      .mentorDiv {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 4px;
+        }
+        p {
+          font-size: 16px;
+          font-weight: 500;
+          color: #666666;
+        }
+      }
+      .description {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-between;
+        gap: 20px;
+        h3 {
+          font-size: 20px;
+          font-weight: 600;
+          color: #8a8a8a;
+        }
+        p {
+          font-size: 16px;
+          font-weight: 500;
+          color: #525252;
+        }
+      }
+    }
+    .secondDiv {
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: center;
+      gap: 20px;
+      padding: 0;
+      .accordionDiv {
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+        flex-direction: column;
+        .accordion {
+          width: 100%;
+          /* max-width: 500px; */
+          margin: 20px;
+          padding: 0;
+          .item {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            .header {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              .number {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: start;
+                gap: 10px;
+                .spanOne {
+                  width: 22px;
+                  height: 22px;
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: 1.5px solid #130e67;
+                  color: #0a0836;
+                }
+                h1 {
+                  font-size: 24px;
+                  font-weight: 600;
+                  margin: 0;
+                  color: #130e67;
+                }
+              }
+            }
+
+            @keyframes fadeIn {
+              from {
+                opacity: 0;
+                transform: translateY(-5px);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+          }
+        }
+        .one {
+          .content {
+            width: 100%;
+            gap: 5px;
+            animation: fadeIn 0.3s ease;
+            display: flex;
+            div {
+              width: 123.5px;
+              height: 91px;
+              border-radius: 12px;
+              border: 1px solid #d1d1d1;
+              background-color: #ffffff;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+        }
+        .two {
+          .content {
+            width: 100%;
+            gap: 5px;
+            animation: fadeIn 0.3s ease;
+            display: flex;
+            .contentDiv {
+              width: 163px;
+              height: 61px;
+              border-radius: 12px;
+              border: 1px solid #d1d1d1;
+              background-color: #ffffff;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 5px;
+              gap: 10px;
+              div {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                p {
+                  margin: 0;
+                  color: #666666;
+                }
+                p:nth-child(1) {
+                  font-size: 16px;
+                  font-weight: 600;
+                }
+                p:nth-child(2) {
+                  font-size: 10px;
+                  font-weight: 400;
+                }
+              }
+            }
+          }
+        }
+        .three {
+          .content {
+            width: 100%;
+            gap: 5px;
+            animation: fadeIn 0.3s ease;
+            display: flex;
+            .contentDiv {
+              width: 171.33px;
+              height: 131px;
+              border-radius: 12px;
+              border: 1px solid #d1d1d1;
+              background-color: #ffffff;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+              p {
+                margin: 0;
+                color: #666666;
+              }
+              p:nth-child(1) {
+                font-size: 16px;
+                font-weight: 600;
+              }
+              p:nth-child(2) {
+                font-size: 10px;
+                font-weight: 400;
+              }
+            }
+          }
+        }
+      }
+      .priceDiv {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 20px;
+        justify-content: space-between;
+        div {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          p {
+            margin: 0;
+          }
+        }
+        .totalPrice {
+          margin-bottom: 10px;
+        }
+        button {
+          width: 100%;
+          height: 63px;
+          border-radius: 12px;
+          border: none;
+          background-color: #eeedfc;
+          color: #b7b3f4;
+          font-size: 20px;
+          font-weight: 600;
+        }
+        .basePrice {
+          margin-bottom: -10px;
+        }
+      }
+    }
+  }
+}

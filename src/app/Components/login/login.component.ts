@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
     this.api.loginIn(this.loginForm.value, this.header).subscribe({
       next: (data: any) => {
         console.log(data);
+        this.cookie.set('userToken', data.data.token);
       },
     });
   }

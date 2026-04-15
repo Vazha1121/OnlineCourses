@@ -26,4 +26,8 @@ export class NavComponent {
   public openRegister() {
     this.popService.openRegister();
   }
+
+  public openProfile() {
+    this.popService.openProfile();
+  }
 }

@@ -7,16 +7,25 @@ import { BehaviorSubject } from 'rxjs';
 export class PopUpServiceService {
   constructor() {}
 
+  /* login popup */
   private showLoginPopUp = new BehaviorSubject<boolean>(true);
   showLogin$ = this.showLoginPopUp.asObservable();
 
-  private showRegisterPopUp = new BehaviorSubject<boolean>(true);
-  showRegister$ = this.showRegisterPopUp.asObservable();
   public openLogin() {
     this.showLoginPopUp.next(false);
   }
 
+  /* register popup */
+  private showRegisterPopUp = new BehaviorSubject<boolean>(true);
+  showRegister$ = this.showRegisterPopUp.asObservable();
   public openRegister() {
     this.showRegisterPopUp.next(false);
+  }
+  /* profile popup */
+  private showProfilePopUp = new BehaviorSubject<boolean>(true);
+  showProfile$ = this.showProfilePopUp.asObservable();
+
+  public openProfile() {
+    this.showProfilePopUp.next(false);
   }
 }

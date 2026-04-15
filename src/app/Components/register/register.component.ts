@@ -89,7 +89,7 @@ export class RegisterComponent implements OnInit {
       next: (data: any) => {
         console.log(data);
         console.log(data.data.token);
-        this.cookie.set("userToken", data.data.token)
+        this.cookie.set('userToken', data.data.token);
       },
     });
   }
@@ -99,7 +99,6 @@ export class RegisterComponent implements OnInit {
 
   closeLogin() {
     this.OpencloseRegisterPop = true;
-    console.log(this.OpencloseRegisterPop);
   }
 
   /* Carousel BTNS */
