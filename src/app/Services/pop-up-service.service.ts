@@ -18,6 +18,7 @@ export class PopUpServiceService {
   /* register popup */
   private showRegisterPopUp = new BehaviorSubject<boolean>(true);
   showRegister$ = this.showRegisterPopUp.asObservable();
+
   public openRegister() {
     this.showRegisterPopUp.next(false);
   }
@@ -27,5 +28,12 @@ export class PopUpServiceService {
 
   public openProfile() {
     this.showProfilePopUp.next(false);
+  }
+
+  private showEnrolledPop = new BehaviorSubject<boolean>(true);
+  showEnrolled$ = this.showEnrolledPop.asObservable();
+
+  public openEnrolled() {
+    this.showEnrolledPop.next(false);
   }
 }

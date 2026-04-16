@@ -4,11 +4,19 @@ import { LoginComponent } from '../login/login.component';
 import { BehaviorSubject } from 'rxjs';
 import { PopUpServiceService } from '../../Services/pop-up-service.service';
 import { RegisterComponent } from '../register/register.component';
-import { RouterLink } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { ProfileComponent } from '../profile/profile.component';
+import { EnrolledCourseComponent } from '../enrolled-course/enrolled-course.component';
 @Component({
   selector: 'app-nav',
-  imports: [LoginComponent, RegisterComponent, RouterLink, ProfileComponent],
+  standalone: true,
+  imports: [
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent,
+    RouterModule,
+    EnrolledCourseComponent,
+  ],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss',
 })
@@ -18,7 +26,6 @@ export class NavComponent {
     public popService: PopUpServiceService,
   ) {}
 
-  private showLoginPopUp = new BehaviorSubject<boolean>(true);
   public openLogin() {
     this.popService.openLogin();
   }
@@ -29,5 +36,9 @@ export class NavComponent {
 
   public openProfile() {
     this.popService.openProfile();
+  }
+
+  public openEnroll() {
+    this.popService.openEnrolled();
   }
 }

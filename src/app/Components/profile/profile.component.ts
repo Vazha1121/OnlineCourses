@@ -10,10 +10,12 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
-  imports: [ReactiveFormsModule],
+  standalone:true,
+  imports: [ReactiveFormsModule,RouterModule],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
 })
@@ -37,9 +39,7 @@ export class ProfileComponent implements OnInit {
     });
     this.apiService.profile(header).subscribe({
       next: (data: any) => {
-        console.log(data.data);
         this.profileArray = [data.data];
-        console.log(this.profileArray);
       },
     });
   }
@@ -63,12 +63,9 @@ export class ProfileComponent implements OnInit {
     const header = new HttpHeaders({
       Authorization: `Bearer ${this.cookie.get('userToken')}`,
     });
-     console.log(this.updateProfileForm.value);
+    console.log(this.updateProfileForm.value);
     this.apiService.updateProf(this.updateProfileForm.value, header).subscribe({
       next: (data: any) => {
-        console.log(data);
-       
-
         if (this.updateProfileForm.invalid) {
           this.updateProfileForm.markAllAsTouched();
           return;
@@ -105,15 +102,12 @@ export class ProfileComponent implements OnInit {
     if (file) {
     }
   }
-  handleFile(file: File) {
-    console.log('selected file:', file);
-  }
+  handleFile(file: File) {}
 
   /* Close Profile */
 
   public openCloseBtn: boolean = true;
   closeProfile() {
     this.openCloseBtn = true;
-    console.log(this.openCloseBtn);
   }
 }

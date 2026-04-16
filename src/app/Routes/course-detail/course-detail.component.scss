@@ -56,10 +56,16 @@
           align-items: center;
           justify-content: center;
           gap: 20px;
+
           p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
             font-size: 14px;
             font-weight: 500;
             color: #525252;
+            margin: 0;
           }
         }
         .rating {
@@ -69,6 +75,9 @@
           gap: 20px;
           p {
             font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
             font-weight: 500;
             color: #525252;
           }
@@ -79,6 +88,7 @@
         display: flex;
         align-items: center;
         justify-content: start;
+
         img {
           width: 30px;
           height: 30px;
@@ -194,6 +204,9 @@
               display: flex;
               align-items: center;
               justify-content: center;
+              p {
+                font-size: 13px;
+              }
             }
           }
         }
@@ -223,7 +236,8 @@
                   color: #666666;
                 }
                 p:nth-child(1) {
-                  font-size: 16px;
+                  font-size: 12px;
+                  text-align: center;
                   font-weight: 600;
                 }
                 p:nth-child(2) {

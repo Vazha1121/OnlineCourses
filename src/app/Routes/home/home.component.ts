@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../Services/api.service';
-import { RouterLink } from "@angular/router";
+import { RouterModule } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink],
+  standalone: true,
+  imports: [RouterModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  constructor(public apiServ: ApiService) {}
+  constructor(
+    public apiServ: ApiService,
+    public cookie: CookieService,
+  ) {}
   ngOnInit(): void {
     this.featuredCourse();
   }
@@ -26,6 +31,9 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  goToDetail(id: number) {
+    console.log(id);
+  }
   /* Carousel BTNS */
   public carouselCount: any = 1;
   nextCarousel() {

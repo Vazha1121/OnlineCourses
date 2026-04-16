@@ -3,40 +3,44 @@
     <p>Home > Browse > <span>Development</span></p>
   </div>
   <div class="infoDiv">
-    <div class="firstDiv">
-      <div class="titleDiv">
-        <h1>Advanced React & TypeScript</h1>
-      </div>
-      <div class="imgDiv">
-        <img src="" alt="" />
-      </div>
-      <div class="hourRatingDiv">
-        <div class="hours">
-          <p>
-            <span><img src="calendar.png" alt="" /></span>12 weeks
-          </p>
-          <p>
-            <span><img src="clock.png" alt="" /></span>128 Hours
-          </p>
+    @for (item of courseInfo; track $index) {
+      <div class="firstDiv">
+        <div class="titleDiv">
+          <h1>{{ item.title }}</h1>
         </div>
-        <div class="rating">
-          <p>
-            <span><img src="Star.png" alt="" /></span>4.9
-          </p>
-          <p>
-            <span><img src="development.png" alt="" /></span>Development
-          </p>
+        <div class="imgDiv">
+          <img [src]="item.image" alt="" />
+        </div>
+        <div class="hourRatingDiv">
+          <div class="hours">
+            <p>
+              <span><img src="calendar.png" alt="" /></span
+              >{{ item.durationWeeks }} weeks
+            </p>
+            <p>
+              <span><img src="clock.png" alt="" /></span>{{ item.hours }} Hours
+            </p>
+          </div>
+          <div class="rating">
+            <p>
+              <span><img src="Star.png" alt="" /></span
+              >{{ item.reviews[0].rating }}
+            </p>
+            <p>
+              <span><img src="development.png" alt="" /></span>Development
+            </p>
+          </div>
+        </div>
+        <div class="mentorDiv">
+          <img [src]="item.instructor.avatar" alt="" />
+          <p>{{ item.instructor.name }}</p>
+        </div>
+        <div class="description">
+          <h3>Course Description</h3>
+          <p>{{ item.description }}</p>
         </div>
       </div>
-      <div class="mentorDiv">
-        <img src="" alt="" />
-        <p>Mentor Name</p>
-      </div>
-      <div class="description">
-        <h3>Course Description</h3>
-        <p>dawgKLGakgnw</p>
-      </div>
-    </div>
+    }
     <div class="secondDiv">
       <div class="accordionDiv">
         <div class="accordion one">
@@ -51,18 +55,11 @@
 
             @if (this.open) {
               <div class="content">
-                <div class="">
-                  <p>Mon-Wed</p>
-                </div>
-                <div class="">
-                  <p>Tue-Thu</p>
-                </div>
-                <div class="">
-                  <p>Wed-Fri</p>
-                </div>
-                <div class="">
-                  <p>Weekend</p>
-                </div>
+                @for (item of scheduleArray; track $index) {
+                  <div class="" (click)="getScheduleId(item.id)">
+                    <p>{{ item.label }}</p>
+                  </div>
+                }
               </div>
             }
           </div>
@@ -73,34 +70,57 @@
             <div class="header" (click)="toggle(1)">
               <div class="number">
                 <span class="spanOne">1</span>
-                <h1>Season Type</h1>
+                <h1>Time Slot</h1>
               </div>
               <span><img src="arrowDown.png" alt="" /></span>
             </div>
 
             @if (this.open) {
               <div class="content">
-                <div class="contentDiv">
-                  <img src="goodWeather.png" alt="" />
-                  <div>
-                    <p>Morning</p>
-                    <p>9:00 AM - 12:00 PM</p>
+                @if (scheduleId > 0) {
+                  @for (item of timeSlotArray; track $index) {
+                    <div
+                      class="contentDiv"
+                      [style.border]="'1px solid black'"
+                      (click)="getTimeSlotID(item.id)"
+                    >
+                      @if (item.label == "Morning (9:00 AM - 11:00 AM)") {
+                        <img src="goodWeather.png" alt="" />
+                      } @else if (item.label == "Evening (6:00 PM - 8:00 PM)") {
+                        <img src="moon.png" alt="" />
+                      } @else if (
+                        item.label == "Afternoon (2:00 PM - 4:00 PM)"
+                      ) {
+                        <img src="sun.png" alt="" />
+                      }
+                      <div>
+                        <p [style.color]="'black'">{{ item.label }}</p>
+                      </div>
+                    </div>
+                  }
+                } @else {
+                  <div class="contentDiv">
+                    <img src="goodWeather.png" alt="" />
+                    <div>
+                      <p>Morning</p>
+                      <p>9:00 AM - 12:00 PM</p>
+                    </div>
                   </div>
-                </div>
-                <div class="contentDiv">
-                  <img src="sun.png" alt="" />
-                  <div>
-                    <p>Afternoon</p>
-                    <p>12:00 AM - 6:00 PM</p>
+                  <div class="contentDiv">
+                    <img src="sun.png" alt="" />
+                    <div>
+                      <p>Afternoon</p>
+                      <p>12:00 AM - 6:00 PM</p>
+                    </div>
                   </div>
-                </div>
-                <div class="contentDiv">
-                  <img src="moon.png" alt="" />
-                  <div>
-                    <p>Evening</p>
-                    <p>6:00 AM - 9:00 PM</p>
+                  <div class="contentDiv">
+                    <img src="moon.png" alt="" />
+                    <div>
+                      <p>Evening</p>
+                      <p>6:00 AM - 9:00 PM</p>
+                    </div>
                   </div>
-                </div>
+                }
               </div>
             }
           </div>
@@ -118,31 +138,55 @@
 
             @if (this.open) {
               <div class="content">
-                <div class="contentDiv">
-                  <img src="computer.png" alt="" />
+                @if (timeSlotId > 0) {
+                  @for (item of sessionTypeArray; track $index) {
+                    <div class="contentDiv" [style.border]="'1px solid black'">
+                      @if (item.name == "online") {
+                        <img src="computer.png" alt="" />
+                      } @else if (item.name == "hybrid") {
+                        <img src="hybrid.png" alt="" />
+                      } @else if (item.name == "in_person") {
+                        <img src="pin.png" alt="" />
+                      }
 
-                  <p>Online</p>
-                  <p>Google Meet</p>
-                  <p>Included</p>
-                </div>
-                <div class="contentDiv">
-                  <img src="person.png" alt="" />
+                      <p [style.color]="'black'">{{ item.name }}</p>
+                      <p [style.color]="'black'">Google Meet</p>
+                      @if (item.priceModifier == "0.00") {
+                        <p [style.color]="'black'">Included</p>
+                      } @else {
+                        <p [style.color]="'black'">${{ item.priceModifier }}</p>
+                      }
+                    </div>
+                  }
+                } @else {
+                  <div class="contentDiv">
+                    <img src="computer.png" alt="" />
 
-                  <p>In-Person</p>
-                  <p>
-                    <span><img src="pin.png" alt="" /></span>Chavchavadze st.34
-                  </p>
-                  <p>+ $30</p>
-                </div>
-                <div class="contentDiv">
-                  <img src="hybrid.png" alt="" />
+                    <p>Online</p>
+                    <p>Google Meet</p>
+                    <p>Included</p>
+                  </div>
+                  <div class="contentDiv">
+                    <img src="person.png" alt="" />
 
-                  <p>Hybrid</p>
-                  <p>
-                    <span><img src="pin.png" alt="" /></span>Chavchavadze st.34
-                  </p>
-                  <p>+ $50</p>
-                </div>
+                    <p>In-Person</p>
+                    <p>
+                      <span><img src="pin.png" alt="" /></span>Chavchavadze
+                      st.34
+                    </p>
+                    <p>+ $30</p>
+                  </div>
+                  <div class="contentDiv">
+                    <img src="hybrid.png" alt="" />
+
+                    <p>Hybrid</p>
+                    <p>
+                      <span><img src="pin.png" alt="" /></span>Chavchavadze
+                      st.34
+                    </p>
+                    <p>+ $50</p>
+                  </div>
+                }
               </div>
             }
           </div>
@@ -152,18 +196,18 @@
       <div class="priceDiv">
         <div class="totalPrice">
           <p>Total Price</p>
-          <p>$349</p>
+          <p>${{ totalPrice }}</p>
         </div>
-        
+
         <div class="basePrice">
           <p>Base Price</p>
-          <p>+ $0</p>
+          <p>+ ${{ basePrice }}</p>
         </div>
         <div class="sessionType">
           <p>Session Type</p>
-          <p>+ $0</p>
+          <p>+ ${{ priceModifier }}</p>
         </div>
-        <button>Enroll Now</button>
+        <button (click)="enroleCourse()">Enroll Now</button>
       </div>
     </div>
   </div>

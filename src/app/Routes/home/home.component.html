@@ -92,170 +92,351 @@
 
   <!-- Start Learning Today -->
 
-  <section class="startLearning">
-    <!-- Title -->
-    <div class="titleDiv">
-      <h1>Start Learning Today</h1>
-      <p>Choose from our most popular courses and begin your journey</p>
-    </div>
+  @if (cookie.get("userToken")) {
+    <!-- Continue learning -->
 
-    <!-- Card -->
-    <div class="carDiv">
-      <!-- img -->
-      @for (item of featuredData; track $index) {
+    <section class="continueLearning notAuthorized">
+      <div class="titleDiv">
+        <h1>Continue Learning</h1>
+        <div>
+          <p>Pick up where you left</p>
+          <p>See All</p>
+        </div>
+      </div>
+
+      <div class="carDiv">
         <div class="card">
-          <div class="cardImg">
-            <img [src]="item.image" alt="" />
-          </div>
-          <!-- rating -->
-          <div class="lectorAndRating">
-            <p>{{ item.instructor.name }}</p>
-
-            <div class="starRating">
-              <img src="Star.png" alt="" />
-              <p>{{ item.avgRating }}</p>
-            </div>
-          </div>
-          <!-- Course Title -->
-          <div class="courseTitle">
-            <h1>{{ item.title }}</h1>
-          </div>
-          <!-- Course Desc -->
-          <div class="courseDesc">
-            <p>
-              {{ item.description }}
-            </p>
-          </div>
-
-          <!-- Price and Details BTN -->
-          <div class="priceAndDtl">
-            <div class="price">
-              <p>Starting from</p>
-              <h1>{{ item.basePrice }}</h1>
-            </div>
-            <div class="detailBtn">
-              <button routerLink="courseDetail">Details</button>
-            </div>
-          </div>
-        </div>
-      }
-    </div>
-  </section>
-
-  <!-- Continue learning -->
-
-  <section class="continueLearning notAuthorized">
-    <div class="titleDiv">
-      <h1>Continue Learning</h1>
-      <div>
-        <p>Pick up where you left</p>
-        <p>See All</p>
-      </div>
-    </div>
-
-    <div class="carDiv">
-      <div class="card">
-        <div class="imageTitle">
-          <div class="imgDiv"><img src="compImage.png" alt="" /></div>
-          <div class="cardTitleDiv">
-            <div class="LectureRating">
-              <p>Lecturer Marilyn Mango</p>
-              <div class="starRating">
-                <img src="Star.png" alt="" />
-                <p>4.9</p>
+          <div class="imageTitle">
+            <div class="imgDiv"><img src="compImage.png" alt="" /></div>
+            <div class="cardTitleDiv">
+              <div class="LectureRating">
+                <p>Lecturer Marilyn Mango</p>
+                <div class="starRating">
+                  <img src="Star.png" alt="" />
+                  <p>4.9</p>
+                </div>
+              </div>
+              <div class="title">
+                <h1>Advanced React & TypeScript Development</h1>
               </div>
             </div>
-            <div class="title">
-              <h1>Advanced React & TypeScript Development</h1>
-            </div>
           </div>
-        </div>
-        <div class="progresDiv">
-          <div class="progresBar">
-            <p>65% Complete</p>
-            <div class="progress">
-              <div></div>
-            </div>
-          </div>
-          <div class="btnDiv">
-            <button>View</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="imageTitle">
-          <div class="imgDiv"><img src="compImage.png" alt="" /></div>
-          <div class="cardTitleDiv">
-            <div class="LectureRating">
-              <p>Lecturer Marilyn Mango</p>
-              <div class="starRating">
-                <img src="Star.png" alt="" />
-                <p>4.9</p>
+          <div class="progresDiv">
+            <div class="progresBar">
+              <p>65% Complete</p>
+              <div class="progress">
+                <div></div>
               </div>
             </div>
-            <div class="title">
-              <h1>Advanced React & TypeScript Development</h1>
+            <div class="btnDiv">
+              <button>View</button>
             </div>
           </div>
         </div>
-        <div class="progresDiv">
-          <div class="progresBar">
-            <p>65% Complete</p>
-            <div class="progress">
-              <div></div>
-            </div>
-          </div>
-          <div class="btnDiv">
-            <button>View</button>
-          </div>
-        </div>
-      </div>
 
-      <div class="card">
-        <div class="imageTitle">
-          <div class="imgDiv"><img src="compImage.png" alt="" /></div>
-          <div class="cardTitleDiv">
-            <div class="LectureRating">
-              <p>Lecturer Marilyn Mango</p>
-              <div class="starRating">
-                <img src="Star.png" alt="" />
-                <p>4.9</p>
+        <div class="card">
+          <div class="imageTitle">
+            <div class="imgDiv"><img src="compImage.png" alt="" /></div>
+            <div class="cardTitleDiv">
+              <div class="LectureRating">
+                <p>Lecturer Marilyn Mango</p>
+                <div class="starRating">
+                  <img src="Star.png" alt="" />
+                  <p>4.9</p>
+                </div>
+              </div>
+              <div class="title">
+                <h1>Advanced React & TypeScript Development</h1>
               </div>
             </div>
-            <div class="title">
-              <h1>Advanced React & TypeScript Development</h1>
+          </div>
+          <div class="progresDiv">
+            <div class="progresBar">
+              <p>65% Complete</p>
+              <div class="progress">
+                <div></div>
+              </div>
+            </div>
+            <div class="btnDiv">
+              <button>View</button>
             </div>
           </div>
         </div>
-        <div class="progresDiv">
-          <div class="progresBar">
-            <p>65% Complete</p>
-            <div class="progress">
-              <div></div>
+
+        <div class="card">
+          <div class="imageTitle">
+            <div class="imgDiv"><img src="compImage.png" alt="" /></div>
+            <div class="cardTitleDiv">
+              <div class="LectureRating">
+                <p>Lecturer Marilyn Mango</p>
+                <div class="starRating">
+                  <img src="Star.png" alt="" />
+                  <p>4.9</p>
+                </div>
+              </div>
+              <div class="title">
+                <h1>Advanced React & TypeScript Development</h1>
+              </div>
             </div>
           </div>
-          <div class="btnDiv">
-            <button>View</button>
+          <div class="progresDiv">
+            <div class="progresBar">
+              <p>65% Complete</p>
+              <div class="progress">
+                <div></div>
+              </div>
+            </div>
+            <div class="btnDiv">
+              <button>View</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Sign In popup  -->
+      <!-- Sign In popup  -->
 
-    <section class="signInPop">
-      <div class="loginIn">
-        <div class="imgDiv">
-          <img src="Lock.png" alt="" />
+      <!-- <section class="signInPop">
+        <div class="loginIn">
+          <div class="imgDiv">
+            <img src="Lock.png" alt="" />
+          </div>
+          <div class="titleDiv">
+            <p>Sign in to track your learning progress</p>
+          </div>
+          <div class="btnDiv">
+            <button>Log In</button>
+          </div>
         </div>
-        <div class="titleDiv">
-          <p>Sign in to track your learning progress</p>
-        </div>
-        <div class="btnDiv">
-          <button>Log In</button>
-        </div>
+      </section> -->
+    </section>
+
+    
+<!-- Start Learning -->
+    <section class="startLearning">
+      <!-- Title -->
+      <div class="titleDiv">
+        <h1>Start Learning Today</h1>
+        <p>Choose from our most popular courses and begin your journey</p>
+      </div>
+
+      <!-- Card -->
+      <div class="carDiv">
+        <!-- img -->
+        @for (item of featuredData; track $index) {
+          <div class="card">
+            <div class="cardImg">
+              <img [src]="item.image" alt="" />
+            </div>
+            <!-- rating -->
+            <div class="lectorAndRating">
+              <p>{{ item.instructor.name }}</p>
+
+              <div class="starRating">
+                <img src="Star.png" alt="" />
+                <p>{{ item.avgRating }}</p>
+              </div>
+            </div>
+            <!-- Course Title -->
+            <div class="courseTitle">
+              <h1>{{ item.title }}</h1>
+            </div>
+            <!-- Course Desc -->
+            <div class="courseDesc">
+              <p>
+                {{ item.description }}
+              </p>
+            </div>
+
+            <!-- Price and Details BTN -->
+            <div class="priceAndDtl">
+              <div class="price">
+                <p>Starting from</p>
+                <h1>{{ item.basePrice }}</h1>
+              </div>
+              <div class="detailBtn">
+                <button
+                  [routerLink]="['/courseDetail', item.id]"
+                  (click)="goToDetail(item.id)"
+                >
+                  Details
+                </button>
+              </div>
+            </div>
+          </div>
+        }
       </div>
     </section>
-  </section>
+  } @else {
+    <section class="startLearning">
+      <!-- Title -->
+      <div class="titleDiv">
+        <h1>Start Learning Today</h1>
+        <p>Choose from our most popular courses and begin your journey</p>
+      </div>
+
+      <!-- Card -->
+      <div class="carDiv">
+        <!-- img -->
+        @for (item of featuredData; track $index) {
+          <div class="card">
+            <div class="cardImg">
+              <img [src]="item.image" alt="" />
+            </div>
+            <!-- rating -->
+            <div class="lectorAndRating">
+              <p>{{ item.instructor.name }}</p>
+
+              <div class="starRating">
+                <img src="Star.png" alt="" />
+                <p>{{ item.avgRating }}</p>
+              </div>
+            </div>
+            <!-- Course Title -->
+            <div class="courseTitle">
+              <h1>{{ item.title }}</h1>
+            </div>
+            <!-- Course Desc -->
+            <div class="courseDesc">
+              <p>
+                {{ item.description }}
+              </p>
+            </div>
+
+            <!-- Price and Details BTN -->
+            <div class="priceAndDtl">
+              <div class="price">
+                <p>Starting from</p>
+                <h1>{{ item.basePrice }}</h1>
+              </div>
+              <div class="detailBtn">
+                <button
+                  [routerLink]="['/courseDetail', item.id]"
+                  (click)="goToDetail(item.id)"
+                >
+                  Details
+                </button>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Continue learning -->
+
+    <section class="continueLearning notAuthorized">
+      <div class="titleDiv">
+        <h1>Continue Learning</h1>
+        <div>
+          <p>Pick up where you left</p>
+          <p>See All</p>
+        </div>
+      </div>
+
+      <div class="carDiv">
+        <div class="card">
+          <div class="imageTitle">
+            <div class="imgDiv"><img src="compImage.png" alt="" /></div>
+            <div class="cardTitleDiv">
+              <div class="LectureRating">
+                <p>Lecturer Marilyn Mango</p>
+                <div class="starRating">
+                  <img src="Star.png" alt="" />
+                  <p>4.9</p>
+                </div>
+              </div>
+              <div class="title">
+                <h1>Advanced React & TypeScript Development</h1>
+              </div>
+            </div>
+          </div>
+          <div class="progresDiv">
+            <div class="progresBar">
+              <p>65% Complete</p>
+              <div class="progress">
+                <div></div>
+              </div>
+            </div>
+            <div class="btnDiv">
+              <button>View</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="imageTitle">
+            <div class="imgDiv"><img src="compImage.png" alt="" /></div>
+            <div class="cardTitleDiv">
+              <div class="LectureRating">
+                <p>Lecturer Marilyn Mango</p>
+                <div class="starRating">
+                  <img src="Star.png" alt="" />
+                  <p>4.9</p>
+                </div>
+              </div>
+              <div class="title">
+                <h1>Advanced React & TypeScript Development</h1>
+              </div>
+            </div>
+          </div>
+          <div class="progresDiv">
+            <div class="progresBar">
+              <p>65% Complete</p>
+              <div class="progress">
+                <div></div>
+              </div>
+            </div>
+            <div class="btnDiv">
+              <button>View</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="imageTitle">
+            <div class="imgDiv"><img src="compImage.png" alt="" /></div>
+            <div class="cardTitleDiv">
+              <div class="LectureRating">
+                <p>Lecturer Marilyn Mango</p>
+                <div class="starRating">
+                  <img src="Star.png" alt="" />
+                  <p>4.9</p>
+                </div>
+              </div>
+              <div class="title">
+                <h1>Advanced React & TypeScript Development</h1>
+              </div>
+            </div>
+          </div>
+          <div class="progresDiv">
+            <div class="progresBar">
+              <p>65% Complete</p>
+              <div class="progress">
+                <div></div>
+              </div>
+            </div>
+            <div class="btnDiv">
+              <button>View</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sign In popup  -->
+
+      <section class="signInPop">
+        <div class="loginIn">
+          <div class="imgDiv">
+            <img src="Lock.png" alt="" />
+          </div>
+          <div class="titleDiv">
+            <p>Sign in to track your learning progress</p>
+          </div>
+          <div class="btnDiv">
+            <button>Log In</button>
+          </div>
+        </div>
+      </section>
+    </section>
+  }
 </section>

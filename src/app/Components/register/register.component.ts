@@ -10,10 +10,13 @@ import {
   Validators,
 } from '@angular/forms';
 import { register } from 'module';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-register',
-  imports: [ReactiveFormsModule],
+  standalone:true,
+  imports: [CommonModule,RouterModule,ReactiveFormsModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
